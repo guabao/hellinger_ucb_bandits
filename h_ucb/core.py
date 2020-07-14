@@ -38,7 +38,11 @@ class HUCB(object):
         p = self.total_reward[user_hash] / self.trials_arm[user_hash]
         self.parameter["p"] = p[user_hash]
         f = self.parameter["f(t)"]
-        C = 1 / self.trials_arm[user_hash]
+        #C = 1 - 1 / self.trials_arm[user_hash]
+        # correct C
+        C = 1 - numpy.exp(-0.25 * numpy.log(self.trials[user_hash]) / self.trials_arm[user_hash])
+        #import pdb
+        #pdb.set_trace()
         m1 = numpy.sqrt((1 - p) / p)
         m2 = (1 - C**2) / numpy.sqrt(p)
         m1_square = m1**2
