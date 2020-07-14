@@ -33,12 +33,12 @@ class HUCB(object):
         if numpy.any(self.trials_arm[user_hash] < 1):
             return numpy.argsort(self.trials_arm[user_hash])
         # update parameter
-        import pdb
-        pdb.set_trace()
+        #import pdb
+        #pdb.set_trace()
         p = self.total_reward[user_hash] / self.trials_arm[user_hash]
         self.parameter["p"] = p[user_hash]
         f = self.parameter["f(t)"]
-        C = f(self.trials[user_hash]) / self.trials_arm[user_hash]
+        C = 1 / self.trials_arm[user_hash]
         m1 = numpy.sqrt((1 - p) / p)
         m2 = (1 - C**2) / numpy.sqrt(p)
         m1_square = m1**2
@@ -52,4 +52,4 @@ class HUCB(object):
         q2 = tmp1 - tmp2
         q = numpy.where(q1 <= 1, q1, q2)
         self.parameter['q'][user_hash] = q
-        return numpy.argsort(self.parameter['q'][user_hash])
+        return numpy.argsort(self.parameter['q'][user_hash])[::-1]

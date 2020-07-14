@@ -32,7 +32,7 @@ class UCBLearner(object):
     def trial(self, user_hash):
         base_reward = self.total_reward[user_hash] / self.trials_arm[user_hash]
         bonus = numpy.sqrt(2 * numpy.log(self.trials[user_hash]) / self.trials_arm[user_hash])
-        return numpy.argsort(base_reward + bonus)
+        return numpy.argsort(base_reward + bonus)[::-1]
 
 
 def test_ucb():

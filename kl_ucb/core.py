@@ -58,4 +58,4 @@ class KLUCB(object):
             flag[flag]  = flag1
 
         self.parameter['q'][user_hash] = x
-        return numpy.argsort(self.parameter['q'][user_hash])
+        return numpy.argsort(self.parameter['q'][user_hash])[::-1]
