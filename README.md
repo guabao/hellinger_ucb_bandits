@@ -1,4 +1,4 @@
-# ucb_bandits
+# hellinger_ucb_bandits
 
 Three bandit algorithms: 
 1. The Upper Confidence Bound (UCB) Bandit Algorithm
