@@ -96,3 +96,5 @@ def test_ucb():
     return None
 
 
+if __name__ == "__main__":
+    test_ucb()
