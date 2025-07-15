@@ -53,7 +53,7 @@ def test_ucb():
         # -------------------- KL UCB algo -------------------------
         # get priority list
         t = time.time()
-        arms = learner2.trial(user_hash['user'])
+        arms = learner2.trial(user_hash['user'])["res"]
         t2 += time.time() - t
         # select top K
         action = numpy.zeros(len(contents))
